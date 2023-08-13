@@ -39,5 +39,8 @@ Lint/UselessAssignment:
 Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
+Lint/UnusedBlockArgument:
+  Enabled: false
+
 Naming/MethodParameterName:
   Enabled: false
