@@ -30,5 +30,14 @@ Style/FrozenStringLiteralComment:
 Style/GuardClause:
   Enabled: false
 
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
 Naming/MethodParameterName:
   Enabled: false
