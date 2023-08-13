@@ -37,13 +37,13 @@ class UniquePaths
     next_pos = []
 
     # 右に移動
-    next_x = x+1
+    next_x = x + 1
     if next_x <= @max_x && valid_area?(next_x, y)
       next_pos << [next_x, y]
     end
 
     # 下に移動
-    next_y = y+1
+    next_y = y + 1
     if next_y <= @max_y && valid_area?(x, next_y)
       next_pos << [x, next_y]
     end

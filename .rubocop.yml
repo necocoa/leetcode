@@ -1,0 +1,34 @@
+AllCops:
+  NewCops: enable
+  Exclude:
+    - Gemfile.lock
+
+Metrics/MethodLength:
+  Max: 40
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/NegatedIf:
+  Enabled: false
+
+Style/RedundantReturn:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/NumericPredicate:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Naming/MethodParameterName:
+  Enabled: false
