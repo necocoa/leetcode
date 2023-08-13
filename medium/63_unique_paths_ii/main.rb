@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=63 lang=ruby
+#
+# [63] Unique Paths II
+#
+
+# @lc code=start
 class UniquePaths
   attr_reader :count
 
@@ -75,6 +82,8 @@ def unique_paths_with_obstacles(obstacle_grid)
   a.call
   a.count
 end
+
+# @lc code=end
 
 # obstacle_grid = [
 #   [0,0,0],

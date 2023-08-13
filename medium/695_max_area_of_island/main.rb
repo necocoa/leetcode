@@ -1,3 +1,10 @@
+#
+# @lc app=leetcode id=695 lang=ruby
+#
+# [695] Max Area of Island
+#
+
+# @lc code=start
 class MaxAreaOfIsland
   attr_reader :grid, :max_x, :max_y, :max_area
   attr_accessor :checked_grid
@@ -93,19 +100,10 @@ class MaxAreaOfIsland
   end
 end
 
-grid = [
-  [0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-  [0, 1, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0],
-  [0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 0, 0],
-  [0, 1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0],
-  [0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0]
-]
-
 def max_area_of_island(grid)
   a = MaxAreaOfIsland.new(grid)
   a.call
   a.max_area
 end
+
+# @lc code=end
