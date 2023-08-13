@@ -1,3 +1,12 @@
 {
-  "ruby.rubocop.useBundler": true
+  "ruby.rubocop.useBundler": true,
+  "leetcode.defaultLanguage": "ruby",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.workspaceFolder": "/Users/nat/work/leetcode",
+  "leetcode.filePath": {
+    "default": {
+      "folder": "${difficulty}/${id}_${snake_case_name}",
+      "filename": "main.${ext}"
+    }
+  }
 }
