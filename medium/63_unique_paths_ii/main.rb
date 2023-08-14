@@ -41,21 +41,15 @@ class UniquePaths
   end
 
   def next_position(x, y)
-    next_pos = []
-
-    # 右に移動
-    next_x = x + 1
-    if next_x <= @max_x && valid_area?(next_x, y)
-      next_pos << [next_x, y]
+    dx = [1, 0]
+    dy = [0, 1]
+    dx.length.times.filter_map do |i|
+      next_x = x + dx[i]
+      next_y = y + dy[i]
+      if next_x <= @max_x && next_y <= @max_y && valid_area?(next_x, next_y)
+        [next_x, next_y]
+      end
     end
-
-    # 下に移動
-    next_y = y + 1
-    if next_y <= @max_y && valid_area?(x, next_y)
-      next_pos << [x, next_y]
-    end
-
-    next_pos
   end
 
   def goal?(x, y)

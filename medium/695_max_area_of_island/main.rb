@@ -55,7 +55,7 @@ class MaxAreaOfIsland
   def calc_around_positions(x, y)
     dx = [1, 0, -1, 0]
     dy = [0, 1, 0, -1]
-    4.times.filter_map do |i|
+    dx.length.times.filter_map do |i|
       next_x = x + dx[i]
       next_y = y + dy[i]
       [next_x, next_y] if !out_of_area?(next_x, next_y)
