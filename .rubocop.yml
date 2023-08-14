@@ -30,6 +30,9 @@ Style/FrozenStringLiteralComment:
 Style/GuardClause:
   Enabled: false
 
+Style/NumericLiterals:
+  Enabled: false
+
 Lint/UnusedMethodArgument:
   Enabled: false
 
