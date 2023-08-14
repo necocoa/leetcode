@@ -17,14 +17,12 @@ def roman_to_int(s)
     "D" => 500,
     "M" => 1000
   }
-  dup_s = s.dup
 
-  %w[M D C L X V I].each.sum do |roman|
-    last_roman_i = dup_s.rindex(roman)
-    next 0 if last_roman_i.nil?
-
-    dup_s.slice!(0, last_roman_i + 1).each_char.sum do |roman_str|
-      roman_hash[roman_str] * (roman_str == roman ? 1 : -1)
+  s.each_char.with_index.sum do |roman, i|
+    if i < s.length - 1 && roman_hash[roman] < roman_hash[s[i + 1]]
+      roman_hash[roman] * -1
+    else
+      roman_hash[roman]
     end
   end
 end
