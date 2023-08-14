@@ -3,8 +3,11 @@ AllCops:
   Exclude:
     - Gemfile.lock
 
-Metrics/MethodLength:
-  Max: 40
+Naming:
+  Enabled: false
+
+Metrics:
+  Enabled: false
 
 Style/StringLiterals:
   EnforcedStyle: double_quotes
@@ -43,7 +46,4 @@ Lint/UnderscorePrefixedVariableName:
   Enabled: false
 
 Lint/UnusedBlockArgument:
-  Enabled: false
-
-Naming/MethodParameterName:
   Enabled: false
