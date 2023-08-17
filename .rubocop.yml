@@ -36,6 +36,9 @@ Style/GuardClause:
 Style/NumericLiterals:
   Enabled: false
 
+Style/EmptyMethod:
+  Enabled: false
+
 Lint/UnusedMethodArgument:
   Enabled: false
 
