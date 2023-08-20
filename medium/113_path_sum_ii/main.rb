@@ -22,22 +22,17 @@ end
 def path_sum(root, target_sum)
   return [] if root.nil?
 
-  ans_path = []
-  dfs(root, target_sum, 0, ans_path, [])
-  ans_path
+  dfs(root, target_sum, 0, [], [])
 end
 
 def dfs(node, target_sum, current_sum, ans_path, path)
-  # 末端
-  if node.left.nil? && node.right.nil?
-    if target_sum == current_sum + node.val
-      ans_path.push([*path, node.val])
-    end
-    return
-  end
-
   current_sum += node.val
   path << node.val
+
+  # 末端かつ条件に合致する場合は、pathをans_pathに追加する
+  if node.left.nil? && node.right.nil? && target_sum == current_sum
+    ans_path << path.dup
+  end
 
   if !node.left.nil?
     dfs(node.left, target_sum, current_sum, ans_path, path)
@@ -46,6 +41,7 @@ def dfs(node, target_sum, current_sum, ans_path, path)
     dfs(node.right, target_sum, current_sum, ans_path, path)
   end
   path.pop
+  ans_path
 end
 # @lc code=end
 
