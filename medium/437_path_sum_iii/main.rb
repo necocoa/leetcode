@@ -20,30 +20,28 @@ end
 # @param {Integer} target_sum
 # @return {Integer}
 def path_sum(root, target_sum)
-  return 0 if root.nil?
-
-  dfs(root, target_sum, [], 0)
+  dfs(root, target_sum)
 end
 
-def dfs(node, target_sum, current_path, ans_count)
-  current_path.unshift(node.val)
+def dfs(node, target_sum, ans_count = 0, current_sum = 0, cache = {})
+  return ans_count if node.nil?
 
-  if !node.left.nil?
-    ans_count = dfs(node.left, target_sum, current_path, ans_count)
-  end
-  if !node.right.nil?
-    ans_count = dfs(node.right, target_sum, current_path, ans_count)
-  end
+  current_sum += node.val
 
-  sum = 0
-  current_path.each do |i|
-    sum += i
-    if target_sum == sum
-      ans_count += 1
-    end
+  if current_sum == target_sum
+    ans_count += 1
   end
 
-  current_path.shift
+  if cache[current_sum - target_sum]
+    ans_count += cache[current_sum - target_sum]
+  end
+
+  cache[current_sum] ? cache[current_sum] += 1 : cache[current_sum] = 1
+
+  ans_count = dfs(node.left, target_sum, ans_count, current_sum, cache)
+  ans_count = dfs(node.right, target_sum, ans_count, current_sum, cache)
+
+  cache[current_sum] -= 1
   ans_count
 end
 # @lc code=end
