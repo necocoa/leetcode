@@ -8,14 +8,9 @@
 # @param {Integer} n
 # @return {Integer[]}
 def count_bits(n)
-  (n + 1).times.map do |i|
-    i.to_s(2).count("1")
+  1.upto(n).with_object([0]) do |i, ans|
+    ans[i] = ans[i / 2] + (i % 2)
   end
 end
+
 # @lc code=end
-
-n = 2
-p count_bits(n)
-
-n = 5
-p count_bits(n)
