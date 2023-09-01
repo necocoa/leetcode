@@ -28,24 +28,21 @@ end
 # @param {Node} root
 # @return {List[List[int]]}
 def level_order(root)
-  return [] if root.nil?
+  ans = []
+  return ans unless root
 
-  q_node = QueueNode.new(0, root)
-  bfs(q_node, [], [])
-end
-
-def bfs(q_node, queue, ary)
-  # レベルの配列を作る
-  ary << [] if ary[q_node.level].nil?
-  ary[q_node.level] << q_node.val
-
-  q_node.children.each do |node|
-    queue << QueueNode.new(q_node.level + 1, node)
+  queue = [root]
+  until queue.empty?
+    next_queue = []
+    ans << queue.map do |node|
+      next_queue += node.children
+      node.val
+    end
+    queue = next_queue
   end
-
-  bfs(queue.shift, queue, ary) if !queue.empty?
-  ary
+  ans
 end
+
 # @lc code=end
 
 # root = [1,null,3,2,4,null,5,6]
