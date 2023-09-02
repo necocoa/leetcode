@@ -1,5 +1,4 @@
 {
-  "ruby.rubocop.useBundler": true,
   "leetcode.defaultLanguage": "ruby",
   "leetcode.hint.configWebviewMarkdown": false,
   "leetcode.workspaceFolder": "/Users/nat/work/leetcode",
