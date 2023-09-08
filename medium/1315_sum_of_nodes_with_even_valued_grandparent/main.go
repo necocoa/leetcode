@@ -18,25 +18,22 @@ type TreeNode struct {
 }
 
 func sumEvenGrandparent(root *TreeNode) int {
-	sum := 0
-	dfs(root, &sum, false, false)
-	return sum
+	return dfs(root, false, false)
 }
 
-func dfs(root *TreeNode, sum *int, parent bool, grandparent bool) {
+func dfs(root *TreeNode, parent, grandparent bool) int {
 	if root == nil {
-		return
+		return 0
 	}
+
+	even := root.Val%2 == 0
+	sum := dfs(root.Left, even, parent) + dfs(root.Right, even, parent)
 
 	if grandparent {
-		*sum += root.Val
+		sum += root.Val
 	}
 
-	grandparent = parent
-	parent = root.Val%2 == 0
-
-	dfs(root.Left, sum, parent, grandparent)
-	dfs(root.Right, sum, parent, grandparent)
+	return sum
 }
 
 // @lc code=end
