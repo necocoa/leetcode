@@ -20,32 +20,21 @@ type TreeNode struct {
 }
 
 func sumNumbers(root *TreeNode) int {
-	sum := 0
-	dfs(root, &sum, []int{})
-	return sum
+	return dfs(root, 0)
 }
 
-func dfs(root *TreeNode, sum *int, path []int) {
-	if root == nil {
-		return
+func dfs(node *TreeNode, num int) int {
+	if node == nil {
+		return 0
 	}
 
-	path = append(path, root.Val)
+	num = num*10 + node.Val
 
-	// leaf node
-	if root.Left == nil && root.Right == nil {
-		// path を int に変換して sum に加算
-		pathToInt := 0
-		for _, n := range path {
-			pathToInt *= 10
-			pathToInt += n
-		}
-		*sum += pathToInt
-		return
+	if node.Left == nil && node.Right == nil {
+		return num
 	}
 
-	dfs(root.Left, sum, path)
-	dfs(root.Right, sum, path)
+	return dfs(node.Left, num) + dfs(node.Right, num)
 }
 
 // @lc code=end
