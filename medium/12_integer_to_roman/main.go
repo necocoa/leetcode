@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strings"
 )
 
 /*
@@ -14,48 +13,33 @@ import (
 // @lc code=start
 
 func intToRoman(num int) string {
+	roman := []string{"I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"}
 	romanMap := map[string]int{
-		"I": 1,
-		"V": 5,
-		"X": 10,
-		"L": 50,
-		"C": 100,
-		"D": 500,
-		"M": 1000,
+		"I":  1,
+		"IV": 4,
+		"V":  5,
+		"IX": 9,
+		"X":  10,
+		"XL": 40,
+		"L":  50,
+		"XC": 90,
+		"C":  100,
+		"CD": 400,
+		"D":  500,
+		"CM": 900,
+		"M":  1000,
 	}
-	romanNextMap := map[string]string{
-		"V": "I",
-		"X": "I",
-		"L": "X",
-		"C": "X",
-		"D": "C",
-		"M": "C",
-	}
-	romanMax := []string{"M", "D", "C", "L", "X", "V", "I"}
+
 	var ans string
 
-	for i, roman := range romanMax {
+	for i := len(roman) - 1; i >= 0; i-- {
+		roman := roman[i]
 		romanInt, _ := romanMap[roman]
 
-		// 1, 5, 10の単位を処理
-		if count := num / romanInt; count > 0 {
-			num -= count * romanInt
-			ans += strings.Repeat(roman, count)
+		for num >= romanInt {
+			ans += roman
+			num -= romanInt
 		}
-
-		// 最後の文字はスキップ
-		if i >= len(romanMax)-1 {
-			continue
-		}
-
-		// 4, 9の単位を処理
-		romanNext := romanNextMap[roman]
-		romanNextInt, _ := romanMap[romanNext]
-		if count := num / (romanInt - romanNextInt); count > 0 {
-			num -= count * (romanInt - romanNextInt)
-			ans += romanNext + roman
-		}
-
 	}
 
 	return ans
@@ -64,5 +48,7 @@ func intToRoman(num int) string {
 // @lc code=end
 
 func main() {
+	fmt.Println(intToRoman(3))
+	fmt.Println(intToRoman(58))
 	fmt.Println(intToRoman(1994))
 }
