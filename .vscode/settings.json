@@ -7,5 +7,12 @@
       "folder": "${difficulty}/${id}_${snake_case_name}",
       "filename": "main.${ext}"
     }
-  }
+  },
+  "go.inlayHints.assignVariableTypes": false,
+  "go.inlayHints.compositeLiteralFields": false,
+  "go.inlayHints.compositeLiteralTypes": false,
+  "go.inlayHints.constantValues": false,
+  "go.inlayHints.functionTypeParameters": false,
+  "go.inlayHints.parameterNames": false,
+  "go.inlayHints.rangeVariableTypes": false
 }
